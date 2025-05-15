@@ -34,35 +34,40 @@ Easy Setup Headless Multi Session Whatsapp Gateway With NodeJs
   npm run start
 ```
 
-### 5. Open On Browser & Start Scan QR
+ 
 
-```
-http://localhost:5001/session/start?session=MySession
-```
+http://localHost:5001/message/send-image  
 
-### 6. Sending First Message
+{
+    "session": "DEMO1",
+    "to": "91xxxxxxxx",
+    "message": "Hello! This is a text message.",
+     "image": "https://filesamples.com/samples/image/jpeg/sample_640%C3%97426.jpeg"
+}
 
-```
-http://localhost:5001/message/send-text?session=MySession&to=90XXXXXXXXXX&text=Hello
-```
 
-### Using Axios
+http://localHost:5001/message/send-document
 
-```js
-// Send Text
+{
+    "session": "DEMO1",
+    "to": "91xxxxxxxx",
+    "message": "Hello! This is a text message.",
+    "document": "https://pdfobject.com/pdf/sample.pdf",
+    "document_name": "PDF"
+}
 
-axios.post("http://localhost:5001/message/send-text", {
-  session   : "MySession",
-  to        : "90XXXXXXXXXX",
-  text      : "Hello World",
-});
+http://localHost:5001/message/send-text
 
-// Send Image
+{ "session": "mysessionid", "to": "6281234567890", "message": "Hello! This is a text message." }
 
-axios.post("http://localhost:5001/message/send-image", {
-  session   : "MySession",
-  to        : "90XXXXXXXXXX",
-  text      : "Hello World",
-  image_url : "https://placehold.co/600x400",
-});
-```
+
+
+or start session http://localHost:5001/session/start?session=DEMO1
+
+for logout - (Same as previos) http://localHost:5001/session/logout?session=DEMO1 
+
+
+for check is The Qr code scanned or not . ->.  basicaly to show connected or not connected text - >.  http://localHost:5001/session/get-session?session=DEMO1
+
+
+here use isScanned key
